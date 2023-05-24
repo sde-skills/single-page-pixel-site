@@ -8,12 +8,12 @@
   n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '5214619215266885');
+  'https://connect.aseempuri.sb.facebook.net/en_US/fbevents.js?r=canary&v=next');
+  fbq('init', '1010918203624949');
   fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=5214619215266885&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1010918203624949&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <meta name="facebook-domain-verification" content="qowwrhpyni79cf2pms3zixyrxoh3b4" />
@@ -24,11 +24,16 @@
     <div>
     <ul>
         <li><button id="addToWishlistButton" type="button">Add to Wishlist</button></li>
-        <li><button id="addToCartButton" type="button">Add to Cart</button></li>
-        <li><button id="checkoutButton" type="button">Check Out</button></li>
-        <li><button id="purchaseButton" type="button">Purchase</button></li>
         <li><button id="subcribeButton" type="button">Subscribe</button></li>
         <li><button id="registrationButton" type="button">Registration</button></li>
+    </ul>
+    </div>
+    <h3>Events with User Data</h3>
+    <div>
+    <ul>
+      <li><button id="addToCartButton" type="button">Add to Cart with ph</button></li>
+      <li><button id="checkoutButton" type="button">Check Out with zip</button></li>
+      <li><button id="purchaseButton" type="button">Purchase with em</button></li>
     </ul>
     </div>
 
@@ -38,17 +43,19 @@ document.getElementById('addToWishlistButton').addEventListener('click', functio
 }, false);
 
 document.getElementById('addToCartButton').addEventListener('click', function() {
-  fbq('track', 'AddToCart');
+  fbq('track', 'AddToCart', {currency: "USD", value: 1.00, 'user_data':{'ph':'2061231234'}});
 }, false);
 
 document.getElementById('checkoutButton').addEventListener('click', function() {
-  fbq('track', 'InitiateCheckout');
+  fbq('track', 'InitiateCheckout', {currency: "USD", value: 1.00, name: "Small Pikachu", 'user_data':{'zip':'98052'}});
 }, false);
 
 document.getElementById('purchaseButton').addEventListener('click', function() {
   fbq('track', 'Purchase', {
     value: 100,
     currency: 'USD',
+    name: "Small Pikachu", 
+    'user_data':{'em':'purchase@test.com'}
   });
 }, false);
 
